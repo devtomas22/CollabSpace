@@ -215,6 +215,7 @@ public class Main {
         // Fördefinierat lån
         borrowerNames.add("Anna");
         borrowedBooks.add("333"); // Anna har lånat 1984
+				  //
 
         Scanner scanner = new Scanner(System.in);
 
