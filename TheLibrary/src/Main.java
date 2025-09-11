@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
     // Tamas
     public static void addBook(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn, ArrayList<Boolean> available,
             String title, String author, String isbnNumber) {
@@ -22,8 +23,8 @@ public class Main {
 
     public static int searchBook(ArrayList<String> titles, ArrayList<String> authors, String searchTerm) {
         int index = -1;
-        for(int i = 0; i < titles.size(); i++) {
-            if(titles.get(i).equals(searchTerm) || authors.get(i).equals(searchTerm)) {
+        for (int i = 0; i < titles.size(); i++) {
+            if (titles.get(i).equals(searchTerm) || authors.get(i).equals(searchTerm)) {
                 index = i;
                 return index;
             }
@@ -32,9 +33,8 @@ public class Main {
     }
 
     // Robine
-
     public static boolean borrowBook(ArrayList<Boolean> available, ArrayList<String> borrowers,
-            ArrayList<String> borrowedBooks, int bookIndex, String borrowerName, ArrayList<String> bookISBN ){
+            ArrayList<String> borrowedBooks, int bookIndex, String borrowerName, ArrayList<String> bookISBN) {
 
         if (bookIndex < 0 || bookIndex >= available.size()) {
             return false;
@@ -51,7 +51,7 @@ public class Main {
     }
 
     public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers,
-            ArrayList<String> borrowedBooks, String isbnNumber, ArrayList<String> bookISBN ) {
+            ArrayList<String> borrowedBooks, String isbnNumber, ArrayList<String> bookISBN) {
 
         int bookIndex = bookISBN.indexOf(isbnNumber);
         int borrowedBooksIndex = borrowedBooks.indexOf(isbnNumber);
@@ -75,7 +75,7 @@ public class Main {
 
     public static void displayBorrowedBooks(ArrayList<String> borrowers, ArrayList<String> borrowedBooks) {
 
-        for(int i = 0; i < borrowers.size() ; i++){
+        for (int i = 0; i < borrowers.size(); i++) {
             String borrower = borrowers.get(i);
             String book = borrowedBooks.get(i);
 
@@ -84,19 +84,20 @@ public class Main {
     }
 
     // Sasha
-
     public static void registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name,
             String phoneNumber) {
         userNames.add(name);
         phoneNumbers.add(phoneNumber);
+
         System.out.println(name + " tillagd som användare, med telefonnummer: " + phoneNumber);
-        System.out.printf("There are %d registered users in the list, this user has index %d%n", userNames.size(), userNames.indexOf(name));
+        System.out.printf("Det finns %d registrerade användare i listan, den här användaren har index %d%n", userNames.size(), userNames.indexOf(name));
+
     }
 
     public static void displayAllUsers(ArrayList<String> userNames, ArrayList<String> phoneNumbers) {
 
         for (int i = 0; i < userNames.size(); i++) {
-            System.out.printf("User %d | Name: %s | Phone number %s%n", i + 1, userNames.get(i), phoneNumbers.get(i));
+            System.out.printf("Användare %d | Namn: %s | Telefonnummer %s%n", i + 1, userNames.get(i), phoneNumbers.get(i));
         }
     }
 
@@ -104,7 +105,7 @@ public class Main {
         int indexOfUser = userNames.indexOf(name);
 
         if (indexOfUser == -1) {
-            System.out.printf("User by the name of %s not found.%n", name);
+            System.out.printf("Användare med namnet %s hittades inte.%n", name);
         }
 
         return indexOfUser;
@@ -114,8 +115,9 @@ public class Main {
     public static int countAvailableBooks(ArrayList<Boolean> available) {
         int availableBooks = 0;
         for (Boolean book : available) {
-            if (book)
+            if (book) {
                 availableBooks++;
+            }
         }
         return availableBooks;
     }
@@ -123,8 +125,9 @@ public class Main {
     public static int countBorrowedBooks(ArrayList<Boolean> available) {
         int borrowedBooks = 0;
         for (Boolean book : available) {
-            if (!book)
+            if (!book) {
                 borrowedBooks++;
+            }
         }
         return borrowedBooks;
     }
@@ -152,12 +155,11 @@ public class Main {
     }
 
     // Tomas
-
     public static void displayMainMenu() {
         System.out.println("\n=== BIBLIOTEKSSYSTEM ===");
         displayBookMenu();
         displayLoanMenu();
-        
+
         System.out.println("0. Avsluta");
     }
 
@@ -177,7 +179,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        
+
         // Böcker (index motsvarar varandra)
         ArrayList<String> bookTitles = new ArrayList<>();
         ArrayList<String> bookAuthors = new ArrayList<>();
@@ -213,7 +215,7 @@ public class Main {
         // Fördefinierat lån
         borrowerNames.add("Anna");
         borrowedBooks.add("333"); // Anna har lånat 1984
-				  //
+        //
 
         Scanner scanner = new Scanner(System.in);
 
@@ -256,7 +258,7 @@ public class Main {
                     String name = scanner.nextLine();
                     System.out.print("Nummer: ");
                     String phoneNumber = scanner.nextLine();
-                // registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name, String phoneNumber) {
+                    // registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name, String phoneNumber) {
                     registerUser(userNames, phoneNumbers, name, phoneNumber);
                     break;
                 case 7:
@@ -267,7 +269,7 @@ public class Main {
                     String searchName = scanner.nextLine();
                     int indexOfUser = searchUser(userNames, searchName);
                     if (indexOfUser != -1) {
-                        System.out.printf("User by the name of %s is found.%n", userNames.get(indexOfUser));
+                        System.out.printf("Användare med namnet %s is hittades.%n", userNames.get(indexOfUser));
                     }
                     break;
                 case 9:
