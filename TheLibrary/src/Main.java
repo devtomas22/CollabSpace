@@ -15,7 +15,7 @@ public class Main {
     }
 
     public static void displayAllBooks(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn) {
-        System.out.printf("Samtliga böcker: \n");
+        System.out.println("Samtliga böcker: ");
         for (int i = 0; i < titles.size(); i++) {
             System.out.printf("%s av %s med ISBN nummer %s med index %d%n", titles.get(i), authors.get(i), isbn.get(i), i);
         }
@@ -88,8 +88,10 @@ public class Main {
             String phoneNumber) {
         userNames.add(name);
         phoneNumbers.add(phoneNumber);
-        System.out.println("Användare tillagd: " + name + " med telefonnummer: " + phoneNumber);
+
+        System.out.println(name + " tillagd som användare, med telefonnummer: " + phoneNumber);
         System.out.printf("Det finns %d registrerade användare i listan, den här användaren har index %d%n", userNames.size(), userNames.indexOf(name));
+
     }
 
     public static void displayAllUsers(ArrayList<String> userNames, ArrayList<String> phoneNumbers) {
