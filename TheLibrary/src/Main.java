@@ -22,15 +22,12 @@ public class Main {
         }
     }
 
-    public static int searchBook(ArrayList<String> titles, ArrayList<String> authors, String searchTerm) {
-        int index = -1;
+    public static void searchBook(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn, String searchTerm) {
         for(int i = 0; i < titles.size(); i++) {
-            if(titles.get(i).equals(searchTerm) || authors.get(i).equals(searchTerm)) {
-                index = i;
-                return index;
+            if(titles.get(i).equals(searchTerm)) {
+                System.out.printf("Hittade följande bok med titeln: %s av %s med ISBN nummer: %s och index %d%n", titles.get(i), authors.get(i), isbn.get(i), i );
             }
         }
-        return index;
     }
 
     // Robine
@@ -167,6 +164,7 @@ public class Main {
         System.out.println("1. Visa alla böcker");
         System.out.println("2. Lägg till bok");
         System.out.println("3. Låna bok");
+        System.out.println("3. Sök efter författare eller bok");
         System.out.println("4. Återlämna bok");
         System.out.println("5. Visa statistik");
     }
@@ -238,22 +236,26 @@ public class Main {
                     String isbn = scanner.nextLine();
                     addBook(bookTitles, bookAuthors, bookISBN, bookAvailable, title, author, isbn);
                     break;
-
                 case 3:
+                    System.out.print("Sök efter författare eller bok: ");
+                    String searchTerm = scanner.nextLine();
+                    searchBook(bookTitles, bookAuthors, bookISBN, searchTerm);
+                    break;
+                case 4:
                     System.out.print("Låntagare: ");
                     String borrowerName = scanner.nextLine();
                     System.out.print("Bokindex: ");
                     int bookIndex = scanner.nextInt();
                     borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN);
-                case 4:
+                case 5:
                     System.out.print("ISBN: ");
                     String isbnNumber = scanner.nextLine();
                     returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN);
                     break;
-                case 5:
+                case 6:
                     displayLibraryStatistics(bookTitles, bookAvailable, userNames);
                     break;
-                case 6:
+                case 7:
                     System.out.print("Namn: ");
                     String name = scanner.nextLine();
                     System.out.print("Nummer: ");
@@ -261,10 +263,10 @@ public class Main {
                 // registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name, String phoneNumber) {
                     registerUser(userNames, phoneNumbers, name, phoneNumber);
                     break;
-                case 7:
+                case 8:
                     displayAllUsers(userNames, phoneNumbers);
                     break;
-                case 8:
+                case 9:
                     System.out.print("Namn: ");
                     String searchName = scanner.nextLine();
                     int indexOfUser = searchUser(userNames, searchName);
@@ -272,7 +274,7 @@ public class Main {
                         System.out.printf("User by the name of %s is found.%n", userNames.get(indexOfUser));
                     }
                     break;
-                case 9:
+                case 10:
                     displayBorrowedBooks(borrowerNames, borrowedBooks);
                     break;
                 case 0:
