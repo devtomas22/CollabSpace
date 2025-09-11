@@ -21,10 +21,10 @@ public class Main {
         }
     }
 
-    public static int searchBook(ArrayList<String> titles, ArrayList<String> authors, String searchTerm) {
+    public static int searchBook(ArrayList<String> titles, ArrayList<String> ISBN, String searchTerm) {
         int index = -1;
         for (int i = 0; i < titles.size(); i++) {
-            if (titles.get(i).equals(searchTerm) || authors.get(i).equals(searchTerm)) {
+            if (titles.get(i).equals(searchTerm) || ISBN.get(i).equals(searchTerm)) {
                 index = i;
                 return index;
             }
@@ -242,13 +242,25 @@ public class Main {
                 case 3:
                     System.out.print("Låntagare: ");
                     String borrowerName = scanner.nextLine();
-                    System.out.print("Bokindex: ");
-                    int bookIndex = scanner.nextInt();
-                    borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN);
+                    System.out.print("Boktitel eller ISBN: ");
+                    String searchString = scanner.nextLine();
+                    int bookIndex = searchBook(bookTitles, bookISBN, searchString);
+                    if (bookIndex == -1){
+                        System.out.printf("Kunde inte hitta bok med titeln %s.%n", searchString);
+                    } else if (borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN)) {
+                        System.out.printf("%s lånad av %s.%n", bookTitles.get(bookIndex), borrowerNames);
+                    } else {
+                        System.out.printf("Boken är redan utlånad.%n");
+                    }
+                    break;
                 case 4:
                     System.out.print("ISBN: ");
                     String isbnNumber = scanner.nextLine();
-                    returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN);
+                    if(returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN)){
+                        System.out.printf("Bok återlämnad.%n");
+                    } else {
+                        System.out.printf("Fel uppstod, kunde inte återlämna boken.%n");
+                    }
                     break;
                 case 5:
                     displayLibraryStatistics(bookTitles, bookAvailable, userNames);
