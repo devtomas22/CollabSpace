@@ -86,14 +86,12 @@ public class Main {
             String phoneNumber) {
         userNames.add(name);
         phoneNumbers.add(phoneNumber);
-
         System.out.println(name + " tillagd som användare, med telefonnummer: " + phoneNumber);
         System.out.printf("Det finns %d registrerade användare i listan, den här användaren har index %d%n", userNames.size(), userNames.indexOf(name));
 
     }
 
     public static void displayAllUsers(ArrayList<String> userNames, ArrayList<String> phoneNumbers) {
-
         for (int i = 0; i < userNames.size(); i++) {
             System.out.printf("Användare %d | Namn: %s | Telefonnummer %s%n", i + 1, userNames.get(i), phoneNumbers.get(i));
         }
@@ -213,7 +211,6 @@ public class Main {
         // Fördefinierat lån
         borrowerNames.add("Anna");
         borrowedBooks.add("333"); // Anna har lånat 1984
-        //
 
         Scanner scanner = new Scanner(System.in);
 
