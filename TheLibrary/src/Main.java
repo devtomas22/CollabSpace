@@ -243,7 +243,7 @@ public class Main {
                     System.out.print("Boktitel eller ISBN: ");
                     String searchString = scanner.nextLine();
                     int bookIndex = searchBook(bookTitles, bookISBN, searchString);
-                    if (bookIndex == -1){
+                    if (bookIndex == -1) {
                         System.out.printf("Kunde inte hitta bok med titeln %s.%n", searchString);
                     } else if (borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN)) {
                         System.out.printf("%s lånad av %s.%n", bookTitles.get(bookIndex), borrowerNames);
@@ -254,7 +254,7 @@ public class Main {
                 case 4:
                     System.out.print("ISBN: ");
                     String isbnNumber = scanner.nextLine();
-                    if(returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN)){
+                    if (returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN)) {
                         System.out.printf("Bok återlämnad.%n");
                     } else {
                         System.out.printf("Fel uppstod, kunde inte återlämna boken.%n");
