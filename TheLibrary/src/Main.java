@@ -247,15 +247,20 @@ public class Main {
                     int bookIndex = searchBook(bookTitles, bookISBN, searchString);
                     if (bookIndex == -1){
                         System.out.printf("Kunde inte hitta bok med titeln %s.%n", searchString);
-                    } else {
-                        borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN);
+                    } else if (borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN)) {
                         System.out.printf("%s lånad av %s.%n", bookTitles.get(bookIndex), borrowerNames);
+                    } else {
+                        System.out.printf("Boken är redan utlånad.%n");
                     }
                     break;
                 case 4:
                     System.out.print("ISBN: ");
                     String isbnNumber = scanner.nextLine();
-                    returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN);
+                    if(returnBook(bookAvailable, borrowerNames, borrowedBooks, isbnNumber, bookISBN)){
+                        System.out.printf("Bok återlämnad.%n");
+                    } else {
+                        System.out.printf("Fel uppstod, kunde inte återlämna boken.%n");
+                    }
                     break;
                 case 5:
                     displayLibraryStatistics(bookTitles, bookAvailable, userNames);
