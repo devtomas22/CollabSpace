@@ -1,7 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +14,7 @@ public class Main {
     }
 
     public static void displayAllBooks(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn) {
-        System.out.printf("Samtliga böcker: \n");
+        System.out.println("Samtliga böcker: ");
         for (int i = 0; i < titles.size(); i++) {
             System.out.printf("%s av %s med ISBN nummer %s med index %d%n", titles.get(i), authors.get(i), isbn.get(i), i);
         }
@@ -91,7 +89,7 @@ public class Main {
             String phoneNumber) {
         userNames.add(name);
         phoneNumbers.add(phoneNumber);
-        System.out.println("User added: " + name + " with phone number: " + phoneNumber);
+        System.out.println(name + " tillagd som användare, med telefonnummer: " + phoneNumber);
         System.out.printf("There are %d registered users in the list, this user has index %d%n", userNames.size(), userNames.indexOf(name));
     }
 
