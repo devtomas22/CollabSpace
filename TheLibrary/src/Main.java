@@ -248,7 +248,7 @@ public class Main {
                     if (bookIndex == -1){
                         System.out.printf("Kunde inte hitta bok med titeln %s.%n", searchString);
                     } else if (borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN)) {
-                        System.out.printf("%s lånad av %s.%n", bookTitles.get(bookIndex), borrowerNames);
+                        System.out.printf("%s lånad av %s.%n", bookTitles.get(bookIndex), borrowerName);
                     } else {
                         System.out.printf("Boken är redan utlånad.%n");
                     }
