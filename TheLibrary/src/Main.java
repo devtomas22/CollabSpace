@@ -278,5 +278,6 @@ public class Main {
                     break;
             }
         }
+        scanner.close();
     }
 }
