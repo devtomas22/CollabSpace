@@ -1,3 +1,3 @@
 # CollabSpace
 
-Shared repo for small code challenges
+Repository for collaborating on small code challenges
