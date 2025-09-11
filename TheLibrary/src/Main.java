@@ -46,7 +46,7 @@ public class Main {
             borrowers.add(borrowerName);
             return true;
         } else {
-            return false; // book not available
+            return false;
         }
     }
 
@@ -62,8 +62,6 @@ public class Main {
 
         if (!available.get(bookIndex)) {
             available.set(bookIndex, true);
-            // String borrowerName = borrowers.get(borrowedBooksIndex);
-
             borrowedBooks.remove(borrowedBooksIndex);
             borrowers.remove(borrowedBooksIndex);
             return true;
