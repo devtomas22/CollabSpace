@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static void displayAllBooks(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn) {
-        System.out.printf("Samtliga böcker: \n");
+        System.out.print("Samtliga böcker: \n");
         for (int i = 0; i < titles.size(); i++) {
             System.out.printf("%s av %s med ISBN nummer %s med index %d%n", titles.get(i), authors.get(i), isbn.get(i), i);
         }
@@ -163,17 +163,17 @@ public class Main {
     public static void displayBookMenu() {
         System.out.println("1. Visa alla böcker");
         System.out.println("2. Lägg till bok");
-        System.out.println("3. Låna bok");
-        System.out.println("3. Sök efter författare eller bok");
-        System.out.println("4. Återlämna bok");
-        System.out.println("5. Visa statistik");
+        System.out.println("3. Sök efter boktitel");
+        System.out.println("4. Låna bok");
+        System.out.println("5. Återlämna bok");
+        System.out.println("6. Visa statistik");
     }
 
     public static void displayLoanMenu() {
-        System.out.println("6. Registrera användare.");
-        System.out.println("7. Visa alla användare.");
-        System.out.println("8. Sök användare.");
-        System.out.println("9. Visa utlånade böcker");
+        System.out.println("7. Registrera användare.");
+        System.out.println("8. Visa alla användare.");
+        System.out.println("9. Sök användare.");
+        System.out.println("10. Visa utlånade böcker");
     }
 
     public static void main(String[] args) {
