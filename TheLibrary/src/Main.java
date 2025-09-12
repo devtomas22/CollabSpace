@@ -22,14 +22,12 @@ public class Main {
     }
 
     public static int searchBook(ArrayList<String> titles, ArrayList<String> ISBN, String searchTerm) {
-        int index = -1;
         for (int i = 0; i < titles.size(); i++) {
             if (titles.get(i).equals(searchTerm) || ISBN.get(i).equals(searchTerm)) {
-                index = i;
-                return index;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
 
     // Robine
