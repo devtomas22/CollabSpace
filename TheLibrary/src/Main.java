@@ -4,20 +4,18 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Tamas
-    public static void addBook(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn, ArrayList<Boolean> available,
-            String title, String author, String isbnNumber) {
+    public static void addBook(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn, ArrayList<Boolean> available, String title, String author, String isbnNumber) {
         titles.add(title);
         authors.add(author);
         isbn.add(isbnNumber);
         available.add(true);
-        System.out.printf("%s av %s med ISBN nummer %s har lagts till%n", title, author, isbnNumber);
+        System.out.printf("%s av %s med ISBN-nummer %s har lagts till%n", title, author, isbnNumber);
     }
 
     public static void displayAllBooks(ArrayList<String> titles, ArrayList<String> authors, ArrayList<String> isbn) {
         System.out.println("Samtliga böcker: ");
         for (int i = 0; i < titles.size(); i++) {
-            System.out.printf("%s av %s med ISBN nummer %s med index %d%n", titles.get(i), authors.get(i), isbn.get(i), i);
+            System.out.printf("%s av %s med ISBN-nummer %s med index %d%n", titles.get(i), authors.get(i), isbn.get(i), i);
         }
     }
 
@@ -30,10 +28,7 @@ public class Main {
         return -1;
     }
 
-    // Robine
-    public static boolean borrowBook(ArrayList<Boolean> available, ArrayList<String> borrowers,
-            ArrayList<String> borrowedBooks, int bookIndex, String borrowerName, ArrayList<String> bookISBN) {
-
+    public static boolean borrowBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, int bookIndex, String borrowerName, ArrayList<String> bookISBN) {
         if (bookIndex < 0 || bookIndex >= available.size()) {
             return false;
         }
@@ -48,9 +43,7 @@ public class Main {
         }
     }
 
-    public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers,
-            ArrayList<String> borrowedBooks, String isbnNumber, ArrayList<String> bookISBN) {
-
+    public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, String isbnNumber, ArrayList<String> bookISBN) {
         int bookIndex = bookISBN.indexOf(isbnNumber);
         int borrowedBooksIndex = borrowedBooks.indexOf(isbnNumber);
 
@@ -66,11 +59,9 @@ public class Main {
         }
 
         return false;
-
     }
 
     public static void displayBorrowedBooks(ArrayList<String> borrowers, ArrayList<String> borrowedBooks) {
-
         for (int i = 0; i < borrowers.size(); i++) {
             String borrower = borrowers.get(i);
             String book = borrowedBooks.get(i);
@@ -79,19 +70,15 @@ public class Main {
         }
     }
 
-    // Sasha
-    public static void registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name,
-            String phoneNumber) {
+    public static void registerUser(ArrayList<String> userNames, ArrayList<String> phoneNumbers, String name, String phoneNumber) {
         userNames.add(name);
         phoneNumbers.add(phoneNumber);
-
         System.out.println(name + " tillagd som användare, med telefonnummer: " + phoneNumber);
         System.out.printf("Det finns %d registrerade användare i listan, den här användaren har index %d%n", userNames.size(), userNames.indexOf(name));
 
     }
 
     public static void displayAllUsers(ArrayList<String> userNames, ArrayList<String> phoneNumbers) {
-
         for (int i = 0; i < userNames.size(); i++) {
             System.out.printf("Användare %d | Namn: %s | Telefonnummer %s%n", i + 1, userNames.get(i), phoneNumbers.get(i));
         }
@@ -107,19 +94,21 @@ public class Main {
         return indexOfUser;
     }
 
-    // Jonathan
     public static int countAvailableBooks(ArrayList<Boolean> available) {
         int availableBooks = 0;
+
         for (Boolean book : available) {
             if (book) {
                 availableBooks++;
             }
         }
+
         return availableBooks;
     }
 
     public static int countBorrowedBooks(ArrayList<Boolean> available) {
         int borrowedBooks = 0;
+
         for (Boolean book : available) {
             if (!book) {
                 borrowedBooks++;
@@ -128,8 +117,7 @@ public class Main {
         return borrowedBooks;
     }
 
-    public static void displayLibraryStatistics(ArrayList<String> titles, ArrayList<Boolean> available,
-            ArrayList<String> userNames) {
+    public static void displayLibraryStatistics(ArrayList<String> titles, ArrayList<Boolean> available, ArrayList<String> userNames) {
         int numBooks = titles.size();
         int numBorrowedBooks = countBorrowedBooks(available);
         int numAvailableBooks = countAvailableBooks(available);
@@ -150,7 +138,6 @@ public class Main {
         }
     }
 
-    // Tomas
     public static void displayMainMenu() {
         System.out.println("\n=== BIBLIOTEKSSYSTEM ===");
         displayBookMenu();
@@ -211,7 +198,6 @@ public class Main {
         // Fördefinierat lån
         borrowerNames.add("Anna");
         borrowedBooks.add("333"); // Anna har lånat 1984
-        //
 
         Scanner scanner = new Scanner(System.in);
 
