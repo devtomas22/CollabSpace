@@ -1,1 +1,12 @@
 .env
+dist
+.idea/
+out
+lib
+build
+
+# Mac system file
+.DS_Store
+
+# Local History plugin
+.history
