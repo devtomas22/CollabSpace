@@ -4,6 +4,7 @@ dist
 out
 lib
 build
+*.iml
 
 # Mac system file
 .DS_Store
